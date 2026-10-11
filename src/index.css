@@ -1,6 +1,6 @@
 :root {
-  --green: #00685e;
-  --green-light: #e6f2f0;
+  --red: #c7614c;
+  --red-light: #f8e6e2;
   --text: #1f2933;
   --muted: #616e7c;
   --bg: #f7f8fa;
@@ -18,15 +18,23 @@ body { margin: 0; }
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background: var(--green);
+  background: var(--red);
   color: #fff;
+  font-weight: 500;
 }
-.logo { margin: 0; font-size: 1.4rem; }
+
+.header-logo{
+  width: 100px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/*.logo { margin: 0; font-size: 1.4rem; }*/
 .nav { display: flex; gap: 1.25rem; }
 .nav a { color: #fff; text-decoration: none; }
 .badge {
   background: #fff;
-  color: var(--green);
+  color: var(--red);
   border-radius: 999px;
   padding: 0 0.5rem;
   font-weight: 700;
@@ -48,7 +56,7 @@ body { margin: 0; }
 .thumb {
   width: 64px; height: 64px; flex-shrink: 0;
   display: grid; place-items: center;
-  background: var(--green-light); color: var(--green);
+  background: var(--red-light); color: var(--red);
   border-radius: var(--radius); font-size: 1.6rem; font-weight: 700;
   margin-bottom: 0.5rem;
 }
@@ -59,7 +67,7 @@ body { margin: 0; }
 .status.closed { background: #fdecea; color: #b3261e; }
 .btn {
   width: 100%; padding: 0.55rem; border: 0; border-radius: 8px;
-  background: var(--green); color: #fff; font-weight: 600; cursor: pointer;
+  background: var(--red); color: #fff; font-weight: 600; cursor: pointer;
 }
 .btn:disabled { background: #c5cbd3; cursor: not-allowed; }
 
@@ -70,7 +78,7 @@ body { margin: 0; }
 1fr)); gap: 1rem; }
 button.card { font: inherit; color: inherit; text-align: left; border: 2px solid 
 transparent; cursor: pointer; width: 100%; }
-button.card:hover { border-color: var(--green-light); }
-.vendor-card.selected { border-color: var(--green); }
+button.card:hover { border-color: var(--red-light); }
+.vendor-card.selected { border-color: var(--red); }
 .card h3 { font-size: 1.05rem; }
-.tag { display: inline-block; margin: 0 0 0.3rem; padding: 0.05rem 0.5rem; border-radius: 999px; background: var(--green-light); color: var(--green); font-size: 0.75rem; font-weight: 600; }
+.tag { display: inline-block; margin: 0 0 0.3rem; padding: 0.05rem 0.5rem; border-radius: 999px; background: var(--red-light); color: var(--red); font-size: 0.75rem; font-weight: 600; }

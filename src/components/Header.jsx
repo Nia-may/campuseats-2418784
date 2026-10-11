@@ -1,8 +1,10 @@
+import logo from '../images/logo.jpg'
 function Header({ cartCount }) {
  
   return (
     <header className="header">
-      <h1 className="logo">CampusEats</h1>
+      <img src={logo} alt="My logo" className="header-logo"/>
+      
       <nav className="nav">
         <a href="#">Vendors</a>
         <a href="#">My Orders</a>
