@@ -22,4 +22,4 @@ Add a new section every week, before you tag. Did not use AI? Write "None" under
 
 - One thing the AI got wrong and how I fixed it: 
 -I'm choose to use font-weight in index.css because i can control the boldness based on different values (400, 500, or 800) compared to <strong> 
--The image path is wrong because the path depends on where the image location is so i adjust the path based on my folder.  
+-The image path is wrong because the path depends on where the image location is so i adjust the path based on my folder and directory.
