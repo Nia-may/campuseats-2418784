@@ -20,7 +20,7 @@ body { margin: 0; }
   padding: 1rem 1.5rem;
   background: var(--red);
   color: #fff;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .header-logo{

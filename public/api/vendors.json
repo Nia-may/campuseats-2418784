@@ -6,29 +6,36 @@
   "isOpen": true,
   "menu": [
     { "id": "2418784-D1", "name": "Americano Black Panther", "price": 4.5,
-          "category": "Drinks", "popular": true, "available": true },
+          "category": "Drinks", "popular": true, "available": true, "spiceLevel": 0 },
     { "id": "2418784-D2", "name": "Hazelnut Honey Latte", "price": 6.5,
-          "category": "Drinks", "popular": true, "available": true },
+          "category": "Drinks", "popular": true, "available": true, "spiceLevel": 0 },
     { "id": "2418784-D3", "name": "Cappuccino Assasimo", "price": 9.0,
-          "category": "Drinks", "popular": true, "available": true },
+          "category": "Drinks", "popular": true, "available": true, "spiceLevel": 0 },
     { "id": "2418784-D4", "name": "Matcha Grass Latte", "price": 8.5,
-          "category": "Drinks", "popular": true, "available": true },
+          "category": "Drinks", "popular": true, "available": true, "spiceLevel": 0 },
     { "id": "2418784-D5", "name": "Mocha Muka", "price": 7.5,
-          "category": "Drinks", "popular": true, "available": true },
+          "category": "Drinks", "popular": true, "available": true, "spiceLevel": 0 },
 
     { "id": "2418784-P1", "name": "Caramel Mechamato Cake", "price": 8.0,
-          "category": "Pastries", "popular": true, "available": true },
+          "category": "Pastries", "popular": true, "available": true, "spiceLevel": 0 },
     { "id": "2418784-P2", "name": "Vanilla Cream Bread", "price": 5.5,
-          "category": "Pastries", "popular": true, "available": true },
+          "category": "Pastries", "popular": true, "available": true, "spiceLevel": 0 },
     { "id": "2418784-P3", "name": "Thai Tea Sando", "price": 6.5,
-          "category": "Pastries", "popular": true, "available": true },
+          "category": "Pastries", "popular": true, "available": true, "spiceLevel": 0 },
 
     { "id": "2418784-C1", "name": "Green Tea Cookies", "price": 4.0,
-          "category": "Cookies", "popular": true, "available": true },
+          "category": "Cookies", "popular": true, "available": true, "spiceLevel": 0 },
     { "id": "2418784-C2", "name": "Black Forest Cookies", "price": 4.0,
-          "category": "Cookies", "popular": true, "available": true },
+          "category": "Cookies", "popular": true, "available": true, "spiceLevel": 0 },
     { "id": "2418784-C3", "name": "Chocolate Bucket Cookies", "price": 7.0,
-          "category": "Cookies", "popular": true, "available": true }
+          "category": "Cookies", "popular": true, "available": true, "spiceLevel": 0 },
+
+    { "id": "2418784-H1", "name": "Chicken Wrap", "price": 6.0,
+          "category": "Sandwiches", "popular": true, "available": true, "spiceLevel": 1 },
+    { "id": "2418784-H2", "name": "Beef Sandwich", "price": 3.5,
+          "category": "Sandwiches", "popular": true, "available": true, "spiceLevel": 2 },
+    { "id": "2418784-H3", "name": "Carbonara Samyang Wrap", "price": 7.5,
+          "category": "Sandwiches", "popular": true, "available": true, "spiceLevel": 3 }
   
   ]
 }

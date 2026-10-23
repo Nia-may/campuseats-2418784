@@ -3,6 +3,11 @@ function MenuItemCard({ item, onAdd }) {
     <article className="card menu-card">
       <div className="thumb" aria-hidden="true">{item.name.charAt(0)}</div>
       <p className="tag">{item.category}</p>
+      <p className="spice-badge">
+        {item.spiceLevel === 0
+        ?'🌶️ Not spicy'
+         : `${'🌶️'.repeat(item.spiceLevel)} Level ${item.spiceLevel}`}
+      </p>
       <h3>{item.name}</h3>
       <p className="muted">{item.description}</p>
       <p className="price">RM {item.price.toFixed(2)}</p>
