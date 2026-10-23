@@ -1,16 +1,13 @@
-import logo from '../images/logo.jpg'
-function Header({ cartCount }) {
- 
+/*import logo from '../images/logo.jpg'*/
+function Header({ cartCount, onShowMenu, onShowCart }) {
   return (
     <header className="header">
-      <img src={logo} alt="My logo" className="header-logo"/>
-      
+      <h1 className="logo">CampusEats</h1>
       <nav className="nav">
-        <a href="#">Vendors</a>
-        <a href="#">My Orders</a>
-        <a href="#" className="cart">
+        <button type="button" className="link" onClick={onShowMenu}>Vendors</button>
+        <button type="button" className="link cart" onClick={onShowCart}>
           Cart <span className="badge">{cartCount}</span>
-        </a>
+        </button>
       </nav>
     </header>
   )

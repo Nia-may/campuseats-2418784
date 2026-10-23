@@ -1,16 +1,16 @@
 const vendors = [
   {
-    id: 'kafe-farouq',
-    name: 'Kafe Mahallah Farouq',
-    location: 'Mahallah Farouq, Block D',
-    openHours: '8:00 am - 10:00 pm',
+    id: 'my-restaurant',
+    name: 'Your Restaurant Name',
+    location: 'Mahallah ..., Block ...',
+    openHours: '7:00 am - 10:00 pm',
     isOpen: true,
     menu: [
-      { id: 'far-1', name: 'Nasi Ayam Penyet', description: 'smashed fried chicken, soup, sambal, and 3 slices of cucumber', price: 6.00, category: 'Rice', 
+      { id: 'my-1', name: 'Dish 1', description: '...', price: 7.5, category: 'Rice', 
 available: true },
-      { id: 'far-2', name: 'Nasi Ayam Gulai', description: 'coconut milk-based curry with chicken, and 3 slices of cucumber', price: 5.50, category: 
-'Rice', available: true },
-      { id: 'far-3', name: 'Teh O Ais Limau', description: 'Tea with lime', price: 2.5, category: 
+      { id: 'my-2', name: 'Dish 2', description: '...', price: 6, category: 
+'Noodles', available: true },
+      { id: 'my-3', name: 'Drink 1', description: '...', price: 2.5, category: 
 'Drinks', available: false },
     ],
   },

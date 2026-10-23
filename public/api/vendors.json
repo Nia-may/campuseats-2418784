@@ -1,0 +1,35 @@
+[{
+  "id": "2418784-Kopi-Cup",
+  "name": "Kopi Cup",
+  "location": "Mahallah Bilal, Block C",
+  "openHours": "12:00 pm - 10:00 pm",
+  "isOpen": true,
+  "menu": [
+    { "id": "2418784-D1", "name": "Americano Black Panther", "price": 4.5,
+          "category": "Drinks", "popular": true, "available": true },
+    { "id": "2418784-D2", "name": "Hazelnut Honey Latte", "price": 6.5,
+          "category": "Drinks", "popular": true, "available": true },
+    { "id": "2418784-D3", "name": "Cappuccino Assasimo", "price": 9.0,
+          "category": "Drinks", "popular": true, "available": true },
+    { "id": "2418784-D4", "name": "Matcha Grass Latte", "price": 8.5,
+          "category": "Drinks", "popular": true, "available": true },
+    { "id": "2418784-D5", "name": "Mocha Muka", "price": 7.5,
+          "category": "Drinks", "popular": true, "available": true },
+
+    { "id": "2418784-P1", "name": "Caramel Mechamato Cake", "price": 8.0,
+          "category": "Pastries", "popular": true, "available": true },
+    { "id": "2418784-P2", "name": "Vanilla Cream Bread", "price": 5.5,
+          "category": "Pastries", "popular": true, "available": true },
+    { "id": "2418784-P3", "name": "Thai Tea Sando", "price": 6.5,
+          "category": "Pastries", "popular": true, "available": true },
+
+    { "id": "2418784-C1", "name": "Green Tea Cookies", "price": 4.0,
+          "category": "Cookies", "popular": true, "available": true },
+    { "id": "2418784-C2", "name": "Black Forest Cookies", "price": 4.0,
+          "category": "Cookies", "popular": true, "available": true },
+    { "id": "2418784-C3", "name": "Chocolate Bucket Cookies", "price": 7.0,
+          "category": "Cookies", "popular": true, "available": true }
+  
+  ]
+}
+]
