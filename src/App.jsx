@@ -120,13 +120,45 @@ function App() {
     )
   } else if (view === 'done') {
     content = lastOrder ? (
-      <section>
-        <h2>Order placed</h2>
-        <p>Name: {lastOrder.name}</p>
-        <p>Mahallah: {lastOrder.mahallah}</p>
-        <p>Pickup time: {lastOrder.pickupTime}</p>
-        <p>Total: RM {lastOrder.total.toFixed(2)}</p>
-      </section>
+      <section className="order-success">
+      <div className="success-icon">✓</div>
+
+      <h2>Order Placed Successfully!</h2>
+      <p className="success-message">
+        Thank you for ordering with CampusEats!
+      </p>
+
+      <div className="order-details">
+        <h3>Order Details</h3>
+
+        <div className="detail-row">
+          <span>Name</span>
+          <strong>{lastOrder.name}</strong>
+        </div>
+
+        <div className="detail-row">
+          <span>Mahallah</span>
+          <strong>{lastOrder.mahallah}</strong>
+        </div>
+
+        <div className="detail-row">
+          <span>Pickup Time</span>
+          <strong>{lastOrder.pickupTime}</strong>
+        </div>
+
+        <div className="detail-row total-row">
+          <span>Total Paid</span>
+          <strong>RM {lastOrder.total.toFixed(2)}</strong>
+        </div>
+      </div>
+
+      <button
+        className="btn"
+        onClick={() => setView('menu')}
+      >
+        Back to Menu
+      </button>
+    </section>
     ) : (
       <p>No order details available.</p>
     )   // TODO (B5): show pickup time and total
