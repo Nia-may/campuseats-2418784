@@ -1,9 +1,11 @@
-
-import { useState } from 'react'
 import MenuItemCard from './MenuItemCard.jsx'
+import { useCart } from '../hooks/useCart.js'
+import { useLocalStorage } from '../hooks/useLocalStorage.js'
 
-function MenuList({ items, onAdd }) {
-  const [maxSpice, setMaxSpice] = useState(3)
+function MenuList({ items }) {
+  const { addToCart } = useCart()
+
+  const [maxSpice, setMaxSpice] = useLocalStorage('campuseats-max-spice', 3)
 
   const filteredItems = items.filter(
     (item) => item.spiceLevel <= maxSpice
@@ -43,7 +45,7 @@ function MenuList({ items, onAdd }) {
             <MenuItemCard
               key={item.id}
               item={item}
-              onAdd={onAdd}
+              onAdd={addToCart}
             />
           ))}
         </div>

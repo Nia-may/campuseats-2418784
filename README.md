@@ -1,4 +1,4 @@
-Credit of vendors 2 and 3 from 2410829
+Credit of vendors from 2410829, 2413042, 2414950, 2418652
 
 # React + Vite
 

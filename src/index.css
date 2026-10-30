@@ -53,6 +53,7 @@ body { margin: 0; }
   max-width: 960px; 
   margin: 0 auto; 
   padding: 1.5rem; 
+  
 }
 
 .section-title { 
@@ -64,6 +65,7 @@ body { margin: 0; }
   display: grid; 
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
   gap: 1rem; 
+  
 }
 
 .card {
@@ -80,7 +82,11 @@ body { margin: 0; }
   display: flex; 
   gap: 1rem; 
   align-items: center; 
+  text-decoration: none;
+  color: inherit;
 }
+
+
 
 .thumb {
   width: 64px; height: 64px; flex-shrink: 0;
@@ -94,6 +100,7 @@ body { margin: 0; }
   color: var(--muted); 
   margin: 0.2rem 0; 
   font-size: 0.9rem; 
+  
 }
 
 .price { 
@@ -378,4 +385,6 @@ button.card:hover {
   .detail-row {
     align-items: flex-start;
   }
+
+  
 }
