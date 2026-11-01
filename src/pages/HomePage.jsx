@@ -7,7 +7,7 @@ function HomePage() {
 
   if (loading) return <Loading />
 
-  if (error) return <ErrorMessage error={error} onRetry={reload} />
+  if (error) return <ErrorMessage message={error} onRetry={reload} />
 
   return (
     <>

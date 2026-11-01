@@ -10,7 +10,7 @@ function VendorPage() {
 
   if (loading) return <Loading />
 
-  if (error) return <ErrorMessage error={error} onRetry={reload} />
+  if (error) return <ErrorMessage message={error} onRetry={reload} />
 //It searches for the vendor whose ID matches the URL parameter.
   const vendor = vendors.find((v) => v.id === id)
 
