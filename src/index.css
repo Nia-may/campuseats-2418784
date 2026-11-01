@@ -23,12 +23,6 @@ body { margin: 0; }
   font-weight: 300;
 }
 
-.header-logo{
-  width: 100px;
-  height: 50px;
-  object-fit: contain;
-}
-
 /*.logo { margin: 0; font-size: 1.4rem; }*/
 .nav { 
   display: flex; 
@@ -56,11 +50,6 @@ body { margin: 0; }
   
 }
 
-.section-title { 
-  font-size: 1.2rem; 
-  margin: 1.5rem 0 0.75rem; 
-}
-
 .grid { 
   display: grid; 
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
@@ -85,8 +74,6 @@ body { margin: 0; }
   text-decoration: none;
   color: inherit;
 }
-
-
 
 .thumb {
   width: 64px; height: 64px; flex-shrink: 0;
@@ -144,12 +131,6 @@ body { margin: 0; }
 }
 
 /* Week 2 additions */
-.vendor-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-  gap: 1rem; 
-}
-
 button.card { 
   font: inherit; 
   color: inherit; 
@@ -294,6 +275,7 @@ button.card:hover {
 }
 
 /*Page Order Success*/
+/*not implemented currently*/
 .order-success {
   max-width: 500px;
   margin: 40px auto;
@@ -385,6 +367,4 @@ button.card:hover {
   .detail-row {
     align-items: flex-start;
   }
-
-  
 }
