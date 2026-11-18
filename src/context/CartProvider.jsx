@@ -1,10 +1,66 @@
 import { CartContext } from './cart-context.js'
-import { useLocalStorage } from '../hooks/useLocalStorage.js'
+import { useEffect, useState } from 'react'
+import {useAuth} from '../hooks/useAuth.js'
+//import { useLocalStorage } from '../hooks/useLocalStorage.js'
+
+//get saved data
+function getSavedData(key) {
+  if (!key) return []
+
+  try {
+    const saved = localStorage.getItem(key)
+    return saved !== null ? JSON.parse(saved) : []
+  } catch {
+    return []
+  }
+}
 
 // Owns the cart and the orders, and shares them with every component inside it.
 export function CartProvider({ children }) {
-  const [cart, setCart] = useLocalStorage('campuseats-cart', [])
-  const [orders, setOrders] = useLocalStorage('campuseats-orders', [])
+  const { user } = useAuth()
+
+  //each user had different key for cart and order
+  const cartKey = user ? `campuseats-cart-${user.uid}` : null
+  const ordersKey = user ? `campuseats-orders-${user.uid}` : null
+
+  return (
+    <UserCartProvider
+      key={user?.uid ?? 'guest'}
+      cartKey={cartKey}
+      ordersKey={ordersKey}
+    >
+      {children}
+    </UserCartProvider>
+  )
+}
+
+// This component remounts when the user changes.
+function UserCartProvider({ children, cartKey, ordersKey }) {
+
+  const [cart, setCart] = useState(() => getSavedData(cartKey))
+  const [orders, setOrders] = useState(() => getSavedData(ordersKey))
+
+  // Save the current user's cart.
+  useEffect(() => {
+    if (!cartKey) return
+
+    try {
+      localStorage.setItem(cartKey, JSON.stringify(cart))
+    } catch {
+      // Keep working if storage is unavailable.
+    }
+  }, [cartKey, cart])
+
+  // Save the current user's orders.
+  useEffect(() => {
+    if (!ordersKey) return
+
+    try {
+      localStorage.setItem(ordersKey, JSON.stringify(orders))
+    } catch {
+      // Keep working if storage is unavailable.
+    }
+  }, [ordersKey, orders])
 
   function addToCart(item) {
     setCart((prev) => {
