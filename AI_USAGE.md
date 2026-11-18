@@ -105,3 +105,37 @@ const total = cart.reduce(
    }
    to ensure it looks proper
 3. className for css is different from my className in css so i need to refer back my index.css
+
+## Week 5
+
+- Tool(s): ChatGpt
+- What I asked for: 
+1.  the personal feature (spice-level badge and filter), how to add key of spice for each user, and if the user is guest, the spice set to any (show all menu)
+2. I had issues with the cart and order that shows even i already log out 
+3. I ask to help me adjust when user in guest mode add to cart item lead to log in page
+
+- What I kept, changed or rejected, and why:
+
+1. The AI suggest dropdown but i love the slider function so i keep the slider of spice level
+2. Adding key for each user cart and order, so when log out cart become 0 and order is empty. If log in to others account it not showing others user cart and order
+3. adding route to MenuList.jsx, and add this condition:
+if (!user) {
+      navigate('/login')
+      return
+    }
+    so when it not user means guest, it will navigate to the login page and the item is not added to the cart
+
+- One thing the AI got wrong and how I fixed it:
+1. I adjust to use slider instead of dropdown by adjust select to input at MenuList.jsx
+         <input
+          id="maxSpice"
+          type="range"
+          min="0"
+          max="3"
+          step="1"
+          value={maxSpice === 'any' ? 3 : Number(maxSpice)}
+          disabled={!user}
+          onChange={(event) =>
+            setMaxSpice(event.target.value)
+          }
+         />
