@@ -1,41 +1,35 @@
 import { Link, useParams } from 'react-router'
-import { useVendors } from '../hooks/useVendors.js'
+import { useVendor } from '../hooks/useVendor.js'
 import MenuList from '../components/MenuList.jsx'
 import { Loading, ErrorMessage } from '../components/Status.jsx'
+import { useState } from 'react'
 
 function VendorPage() {
   const { id } = useParams()
-
-  const { vendors, loading, error, reload } = useVendors()
+  const [maxSpice, setMaxSpice] = useState(3)
+  const { vendor, menu, loading, error } = useVendor(id, maxSpice)
 
   if (loading) return <Loading />
 
-  if (error) return <ErrorMessage message={error} onRetry={reload} />
-//It searches for the vendor whose ID matches the URL parameter.
-  const vendor = vendors.find((v) => v.id === id)
+  if (error) return <ErrorMessage message={error} onRetry={() => 
+    window.location.reload()} />
+  if (!vendor) return <p>Vendor not found. <Link to="/">Back to vendors</Link></p>
 
-  if (!vendor) {
-    return (
-      <>
-        <h2>Vendor not found</h2>
-        <p>There is no vendor called "{id}".</p>
-        <Link to="/">Back to vendors</Link>
-      </>
-    )
-  }
+// Each cart line must know its vendor, so orders can be split per vendor.
+  const items = menu.map((item) => ({ ...item, vendorName: vendor.name }))
 
   return (
-    <>
-      <Link to="/">← All vendors</Link>
-
-      <h2>{vendor.name}</h2>
-
-      <p>
+    <section>
+      <p><Link to="/">← All vendors</Link></p>
+      <h2 className='section-title'>{vendor.name}</h2>
+      <p className='muted'>
         {vendor.location} · {vendor.openHours}
       </p>
-
-      <MenuList items={vendor.menu} />
-    </>
+      <MenuList 
+      items={items}
+      maxSpice={maxSpice}
+      setMaxSpice={setMaxSpice} />
+    </section>
   )
 }
 

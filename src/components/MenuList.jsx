@@ -1,10 +1,9 @@
 import MenuItemCard from './MenuItemCard.jsx'
 import { useCart } from '../hooks/useCart.js'
 import {useAuth} from '../hooks/useAuth.js'
-import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import { useNavigate } from 'react-router' //when guests add food direct to login page
 
-function MenuList({ items }) {
+function MenuList({ items, maxSpice, setMaxSpice }) {
   const { addToCart } = useCart()
 
   //get current auth info
@@ -23,15 +22,6 @@ function MenuList({ items }) {
     addToCart(item)
   }
 
-  //unique storage key for each user
-  const storageKey = user? 'ce-spice-' + user.uid: null
-
-  const [maxSpice, setMaxSpice] = useLocalStorage(storageKey, 'any', !loading && Boolean(user))
-
-  const filteredItems = items.filter(
-    (item) => maxSpice === 'any'|| item.spiceLevel <= Number(maxSpice)
-  )
-
   //firebase check authnetication
   if (loading){
     return <p className='muted'>Loading...</p>
@@ -45,7 +35,7 @@ function MenuList({ items }) {
     <>
       <div className="spice-filter">
         <label htmlFor="maxSpice">
-          Max spice level 🌶️: {maxSpice === 'any' ? 'Any': maxSpice}
+          Max spice level 🌶️: {maxSpice === 3 ? 'Any': maxSpice}
         </label>
 
         <input
@@ -54,10 +44,10 @@ function MenuList({ items }) {
           min="0"
           max="3"
           step="1"
-          value={maxSpice === 'any' ? 3 : Number(maxSpice)}
+          value={maxSpice}
           disabled={!user}
           onChange={(event) =>
-            setMaxSpice(event.target.value)
+            setMaxSpice(Number(event.target.value))
           }
         />
 
@@ -68,13 +58,13 @@ function MenuList({ items }) {
         )}
       </div>
 
-      {filteredItems.length === 0 ? (
+      {items.length === 0 ? (
         <p className="muted">
           No items match this spice level.
         </p>
       ) : (
         <div className="grid">
-          {filteredItems.map((item) => (
+          {items.map((item) => (
             <MenuItemCard
               key={item.id}
               item={item}
@@ -88,3 +78,6 @@ function MenuList({ items }) {
 }
 
 export default MenuList
+//HTML range sliders return strings.
+//Your Firestore spiceLevel is stored as a number.
+//Number() converts the slider value into the correct data type.

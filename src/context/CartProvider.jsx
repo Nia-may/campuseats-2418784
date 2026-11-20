@@ -21,13 +21,11 @@ export function CartProvider({ children }) {
 
   //each user had different key for cart and order
   const cartKey = user ? `campuseats-cart-${user.uid}` : null
-  const ordersKey = user ? `campuseats-orders-${user.uid}` : null
 
   return (
     <UserCartProvider
       key={user?.uid ?? 'guest'}
       cartKey={cartKey}
-      ordersKey={ordersKey}
     >
       {children}
     </UserCartProvider>
@@ -35,10 +33,9 @@ export function CartProvider({ children }) {
 }
 
 // This component remounts when the user changes.
-function UserCartProvider({ children, cartKey, ordersKey }) {
+function UserCartProvider({ children, cartKey}) {
 
   const [cart, setCart] = useState(() => getSavedData(cartKey))
-  const [orders, setOrders] = useState(() => getSavedData(ordersKey))
 
   // Save the current user's cart.
   useEffect(() => {
@@ -50,17 +47,6 @@ function UserCartProvider({ children, cartKey, ordersKey }) {
       // Keep working if storage is unavailable.
     }
   }, [cartKey, cart])
-
-  // Save the current user's orders.
-  useEffect(() => {
-    if (!ordersKey) return
-
-    try {
-      localStorage.setItem(ordersKey, JSON.stringify(orders))
-    } catch {
-      // Keep working if storage is unavailable.
-    }
-  }, [ordersKey, orders])
 
   function addToCart(item) {
     setCart((prev) => {
@@ -96,25 +82,8 @@ function UserCartProvider({ children, cartKey, ordersKey }) {
     )
   }
 
-  // details = { name, mahallah, pickupTime } from CheckoutForm
-  function placeOrder(details) {
-    const order = {
-      id: `ord-${Date.now()}`,
-      createdAt: new Date().toISOString(),
-      ...details,
-      lines: cart,
-      total: cart.reduce(
-        (sum, line) => sum + line.item.price * line.qty,
-        0
-      ),
-    }
-
-    setOrders((prev) => [order, ...prev])
-
-    // Empty the cart after placing an order
+  function clearCart(){ //empty the cart after successfully place an order, only when success placeOrders()
     setCart([])
-
-    return order
   }
 
   const count = cart.reduce(
@@ -130,13 +99,12 @@ function UserCartProvider({ children, cartKey, ordersKey }) {
 
   const value = {
     cart,
-    orders,
     count,
     total,
     addToCart,
     changeQty,
     removeFromCart,
-    placeOrder,
+    clearCart, 
   }
 
   return (
