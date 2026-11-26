@@ -5,11 +5,18 @@ import OrderStatus from '../components/OrderStatus.jsx'
 
 function OrdersPage() {
   const { orders, loading, error } = useMyOrders()
+  //receive this three values from useMy orders()
 
   if (loading) return <p>Loading orders...</p>
   if (error) return <p>Error: {error}</p>
 
-  if (orders.length === 0) {
+  const activeOrders = orders.filter(
+    (order) => order.status !== 'Cancelled'
+  )
+  //want to filter that only order that not cancel shown to the order page
+
+
+  if (activeOrders.length === 0) {
     return (
       <>
         <h2>My orders</h2>
@@ -24,7 +31,7 @@ function OrdersPage() {
       <h2>My orders</h2>
 
       <ul className="order-list">
-        {orders.map((order) => (
+        {activeOrders.map((order) => (
           <li key={order.id} className="card">
             <p className="cart-name">{order.vendorName} · pickup {order.pickupTime}</p>
             <p className="muted">{order.items.map((i) => `${i.qty}× ${i.name}`).join(',')}</p>

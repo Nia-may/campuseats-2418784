@@ -20,11 +20,11 @@ function CartPage() {
   const [error, setError] = useState('')
 
   async function handlePlaceOrder(details) {
-    setError('')
+    setError('') //clear previous error
     try {
-      await placeOrders(user, cart, details)
-      clearCart()
-      navigate('/orders')
+      await placeOrders(user, cart, details) //create order
+      clearCart()//once create the cart will be empty
+      navigate('/orders') //go to orders page
     } catch (err) {
       setError(`Could not place the order: ${err.message}`)
     }
@@ -64,7 +64,8 @@ function CartPage() {
 
       <CheckoutForm
         defaultName={user?.displayName ?? ''}
-        onPlaceOrder={handlePlaceOrder}
+        onPlaceOrder={handlePlaceOrder} /*This passes handlePlaceOrder to CheckoutForm through a prop called onPlaceOrder. */
+        /* When user checkout, handlePlaceOrder will handle it */
       />
     </>
   )

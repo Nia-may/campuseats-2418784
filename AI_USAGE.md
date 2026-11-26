@@ -139,3 +139,19 @@ if (!user) {
             setMaxSpice(event.target.value)
           }
          />
+
+## Week 6
+
+- Tool(s): ChatGpt
+- What I asked for:
+1. Help on To do part
+2. how onSnapshot() work for spice level
+
+- What I kept, changed or rejected, and why:
+1. I need to double check the file and components so the onSnapshot() work and connect properly.
+If the path is not same as mine, I will make changes to it. 
+
+- One thing the AI got wrong and how I fixed it:
+1. The button of steps not working properly where it doesnt show the indicator of received to preparing. I need to check the index.css and see the background colour not work properly. 
+2. I encounter issues when I slide of the spice level, the menu were not shown. I learned that the slider HTML range sliders return strings while Firestore spiceLevel is stored as a number. so I use Number() to converts the slider value into the number.
+ #setMaxSpice(Number(event.target.value))
